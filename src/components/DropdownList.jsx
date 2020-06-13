@@ -1,14 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-function DropdownList({ currPage }) {
-  const options = [
-    'Profile Information',
-    'Change Password',
-    'Become PRO',
-    'Help',
-    'Log Out',
-  ]
+function DropdownList({ currPage, options }) {
   // add hook:
   const [isSelected, setSelected] = useState(options[currPage])
 
@@ -51,6 +44,7 @@ function DropdownList({ currPage }) {
 
 DropdownList.propTypes = {
   currPage: PropTypes.number.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default DropdownList

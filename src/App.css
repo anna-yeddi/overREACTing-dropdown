@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-/* Body */
+
+/* Global Styles */
 
 body {
   background: #f5f5f5;
   height: 100%;
   color: rgba(0, 0, 0, 0.87);
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
@@ -32,14 +33,14 @@ ul {
   align-items: center;
   justify-content: space-between;
   background: #5380f7;
-  min-width: 260px;
+  min-width: 16.25rem;
   border: 0;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  padding: 16px 20px;
+  padding: 1rem 1.25rem;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -47,8 +48,18 @@ ul {
   cursor: pointer;
 }
 
+@media screen and (prefers-reduced-motion: reduce), (update: slow) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important; /* Hat tip Nick/cssremedy (https://css-tricks.com/revisiting-prefers-reduced-motion-the-reduced-motion-media-query/#comment-1700170) */
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Dropdown Styles */
+
 .dropdown-wrapper.open .dropdown {
-  transform: translate(0, 20px);
+  transform: translate(0, 1.25rem);
   opacity: 1;
   visibility: visible;
 }
@@ -64,8 +75,8 @@ ul {
   left: 0;
   background: #ffffff;
   width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   text-align: left;
   opacity: 0;
   visibility: hidden;
@@ -75,15 +86,15 @@ ul {
 .dropdown-wrapper .dropdown:before {
   content: '';
   position: absolute;
-  top: -6px;
-  left: 20px;
+  top: -0.375rem;
+  left: 1.25rem;
   width: 0;
   height: 0;
-  box-shadow: 2px -2px 6px rgba(0, 0, 0, 0.05);
-  border-top: 6px solid #ffffff;
-  border-right: 6px solid #ffffff;
-  border-bottom: 6px solid transparent;
-  border-left: 6px solid transparent;
+  box-shadow: 0.125rem -0.125rem 0.375rem rgba(0, 0, 0, 0.05);
+  border-top: 0.375rem solid #ffffff;
+  border-right: 0.375rem solid #ffffff;
+  border-bottom: 0.375rem solid transparent;
+  border-left: 0.375rem solid transparent;
   transform: rotate(-45deg);
   mix-blend-mode: multiple;
 }
@@ -92,7 +103,7 @@ ul {
   z-index: 1;
   position: relative;
   background: #ffffff;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   color: #666;
 }
 
@@ -101,11 +112,11 @@ ul {
 }
 
 .dropdown-wrapper .dropdown li:first-child {
-  border-radius: 4px 4px 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .dropdown-wrapper .dropdown li:last-child {
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 0.25rem 0.25rem;
 }
 
 .dropdown-wrapper .dropdown li:last-child a {
@@ -115,21 +126,22 @@ ul {
 .dropdown-wrapper .dropdown a {
   display: block;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 16px 0;
+  padding: 1rem 0;
   color: inherit;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
 }
 
 @keyframes ripple {
   0% {
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1),
-      0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1),
-      0 0 0 60px rgba(255, 255, 255, 0.1);
+      0 0 0 1.25rem rgba(255, 255, 255, 0.1),
+      0 0 0 2.5rem rgba(255, 255, 255, 0.1),
+      0 0 0 3.75rem rgba(255, 255, 255, 0.1);
   }
   100% {
-    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1),
-      0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1),
-      0 0 0 80px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 1.25rem rgba(255, 255, 255, 0.1),
+      0 0 0 2.5rem rgba(255, 255, 255, 0.1),
+      0 0 0 3.75rem rgba(255, 255, 255, 0.1), 0 0 0 5rem rgba(255, 255, 255, 0);
   }
 }
